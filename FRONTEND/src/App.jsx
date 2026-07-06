@@ -127,22 +127,7 @@ function App() {
   };
 
   useEffect(() => {
-    const cargarVehiculosIniciales = async () => {
-      try {
-        setError(null);
-        const response = await fetch(API_URL);
-        if (!response.ok) {
-          throw new Error('Error al conectarse al servidor');
-        }
-        const datos = await response.json();
-        setVehiculos(datos);
-      } catch (error) {
-        console.error('Error al obtener los vehículos:', error);
-        setError('No se pudo conectar con el servidor de la Guardia Local');
-      }
-    };
-
-    cargarVehiculosIniciales();
+    obtenerVehiculos();
   }, []);
 
   return (
